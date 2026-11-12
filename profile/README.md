@@ -4,6 +4,8 @@ Python tooling for the [SSP (System Structure and Parameterization) standard](ht
 
 Our libraries let you create, inspect, and edit SSP packages; simulate them across interchangeable engines and compare the results; bridge SysML v2 architectures to SSP/FMI artifacts; turn CSV signals into FMUs; wrap Model Exchange FMUs into Co-Simulation FMUs; and run verification-and-validation workflows over the whole chain. Most repos are MIT-licensed Python; several embed C/C++ runtimes or engines.
 
+![Overview of the pyssporg ecosystem: tools, engines, and standards](assets/ecosystem_overview.png)
+
 ## Repositories
 
 Maturity: `stable` — production-ready; `beta` — usable, API still evolving; `alpha` — early, breaking changes expected; `experimental` — not a release line.
@@ -59,18 +61,6 @@ Maturity: `stable` — production-ready; `beta` — usable, API still evolving; 
 | [experimental_pyssp_standard](https://github.com/pyssporg/experimental_pyssp_standard) | Python | experimental | Experimental fork of `pyssp_standard` with refactored SSP/FMI model APIs for the pyssp ecosystem. Under active development; not a release line. |
 | [pyfmi_distributed](https://github.com/pyssporg/pyfmi_distributed) | Python + C++ | experimental | Turn a SysML v2 definition of an FMU into an optimized C++17 realtime runtime, packaged as an FMI 2.0 Co-Simulation FMU, with transport adapters for HLA, DIS, DCP, ROS 2, and ED-247. |
 
-## Publications
-
-Relevant publications on standardization of artifacts in the modeling workflow — references only, see [pyssp_publications](https://github.com/pyssporg/pyssp_publications) for BibTeX.
-
-- R. Hällqvist, R. C. Munjulury, R. Braun, M. Eek, and P. Krus, "Engineering Domain Interoperability Using the System Structure and Parameterization (SSP) Standard," *Proc. 14th Int. Modelica Conference*, 2021, pp. 37–48. doi:[10.3384/ecp2118137](https://doi.org/10.3384/ecp2118137)
-- R. Hällqvist, E. Herzog, J. Wallén Axehill, and J. R. Palmer, "Excuse me Sir/Madam, which Model?," *INCOSE International Symposium*, vol. 34, no. 1, 2024, pp. 1560–1578. doi:[10.1002/iis2.13225](https://doi.org/10.1002/iis2.13225)
-- A. Bajand, L. V. Larsson, L. Buffoni, E. Nahodovic, R. Hällqvist, O. Lenord, H. Olsson, M. Otter, A. Vandamme, and A. Pop, "Towards a Common Standard for Uncertainty Quantification," *Proc. 16th Int. Modelica & FMI Conference*, 2025, pp. 671–680. doi:[10.3384/ecp218671](https://doi.org/10.3384/ecp218671)
-- E. Rosenlund, R. Hällqvist, R. Braun, and P. Krus, "Objectively Defined Intended Uses, a Prerequisite to Efficient MBSE," *Proc. American Modelica Conference 2024*, 2025, pp. 29–42. doi:[10.3384/ecp20729](https://doi.org/10.3384/ecp20729)
-- E. Rosenlund, J. Cederbladh, P. Strandberg, and D. Krems, "The Role of Standardization for Simulation in Model-Based Systems Engineering," *Software and Systems Modeling*, 2025 (Online First). doi:[10.1007/s10270-025-01344-8](https://doi.org/10.1007/s10270-025-01344-8)
-- E. Rosenlund, R. Hällqvist, R. Braun, and P. Krus, "Automation Nation: Taming Complex V&V Workflows," *Proc. 16th Int. Modelica & FMI Conference*, 2025. doi:[10.3384/ecp218751](https://doi.org/10.3384/ecp218751)
-- E. Andersson, E. Broberg, J. Cederbladh, and E. Rosenlund, "Co-Simulation with Legacy Models in Aerospace Through FMI and SSP - an Experience Report," *2025 IEEE ISSE*, 2025, pp. 1–8. doi:[10.1109/isse65546.2025.11370054](https://doi.org/10.1109/isse65546.2025.11370054)
-- E. Rosenlund, J. Cederbladh, J. Naeser, and R. Hällqvist, "Exemplifying SysML v2 as a Driver for Co-Simulation Using Open Standards," *Proc. INCOSE EMEASEC 2026*, 2026. doi:[10.65351/emeasec26.015](https://doi.org/10.65351/emeasec26.015)
 
 ## Where to Start
 
@@ -88,7 +78,19 @@ Relevant publications on standardization of artifacts in the modeling workflow �
 
 The tools interoperate with engines and standards from the wider co-simulation community: [FMPy](https://pypi.org/project/FMPy/), [OMSimulator](https://pypi.org/project/OMSimulator/) (OpenModelica), [cosim](https://github.com/open-simulation-platform/cosim-cli) (Open Simulation Platform), and the [FMI](https://fmi-standard.org) and [SSP](https://ssp-standard.org) standards.
 
-![Overview of the pyssporg ecosystem: tools, engines, and standards](assets/ecosystem_overview.png)
+## Publications
+
+Relevant publications on standardization of artifacts in the modeling workflow — references only, see [pyssp_publications](https://github.com/pyssporg/pyssp_publications) for BibTeX.
+
+- R. Hällqvist, R. C. Munjulury, R. Braun, M. Eek, and P. Krus, "Engineering Domain Interoperability Using the System Structure and Parameterization (SSP) Standard," *Proc. 14th Int. Modelica Conference*, 2021, pp. 37–48. doi:[10.3384/ecp2118137](https://doi.org/10.3384/ecp2118137)
+- R. Hällqvist, E. Herzog, J. Wallén Axehill, and J. R. Palmer, "Excuse me Sir/Madam, which Model?," *INCOSE International Symposium*, vol. 34, no. 1, 2024, pp. 1560–1578. doi:[10.1002/iis2.13225](https://doi.org/10.1002/iis2.13225)
+- A. Bajand, L. V. Larsson, L. Buffoni, E. Nahodovic, R. Hällqvist, O. Lenord, H. Olsson, M. Otter, A. Vandamme, and A. Pop, "Towards a Common Standard for Uncertainty Quantification," *Proc. 16th Int. Modelica & FMI Conference*, 2025, pp. 671–680. doi:[10.3384/ecp218671](https://doi.org/10.3384/ecp218671)
+- E. Rosenlund, R. Hällqvist, R. Braun, and P. Krus, "Objectively Defined Intended Uses, a Prerequisite to Efficient MBSE," *Proc. American Modelica Conference 2024*, 2025, pp. 29–42. doi:[10.3384/ecp20729](https://doi.org/10.3384/ecp20729)
+- E. Rosenlund, J. Cederbladh, P. Strandberg, and D. Krems, "The Role of Standardization for Simulation in Model-Based Systems Engineering," *Software and Systems Modeling*, 2025 (Online First). doi:[10.1007/s10270-025-01344-8](https://doi.org/10.1007/s10270-025-01344-8)
+- E. Rosenlund, R. Hällqvist, R. Braun, and P. Krus, "Automation Nation: Taming Complex V&V Workflows," *Proc. 16th Int. Modelica & FMI Conference*, 2025. doi:[10.3384/ecp218751](https://doi.org/10.3384/ecp218751)
+- E. Andersson, E. Broberg, J. Cederbladh, and E. Rosenlund, "Co-Simulation with Legacy Models in Aerospace Through FMI and SSP - an Experience Report," *2025 IEEE ISSE*, 2025, pp. 1–8. doi:[10.1109/isse65546.2025.11370054](https://doi.org/10.1109/isse65546.2025.11370054)
+- E. Rosenlund, J. Cederbladh, J. Naeser, and R. Hällqvist, "Exemplifying SysML v2 as a Driver for Co-Simulation Using Open Standards," *Proc. INCOSE EMEASEC 2026*, 2026. doi:[10.65351/emeasec26.015](https://doi.org/10.65351/emeasec26.015)
+
 
 ## License
 
