@@ -1,5 +1,7 @@
 # pyssporg
 
+<img src="assets/pyssporg-logo.svg" alt="pyssporg logo" width="360">
+
 Tooling for modeling and simulation using [SSP (System Structure and Parameterization)](https://ssp-standard.org), [FMI](https://fmi-standard.org), and [SysML v2](https://www.omg.org/spec/SysML/).
 
 Our libraries let you create, inspect, and edit simulation packages; simulate them across interchangeable engines and compare the results; bridge SysML v2 architectures to SSP/FMI artifacts; turn CSV signals into FMUs; wrap Model Exchange FMUs into Co-Simulation FMUs; and run verification-and-validation workflows over the whole chain. Most repos are MIT-licensed Python; several embed C/C++ runtimes or engines.
