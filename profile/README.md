@@ -1,14 +1,12 @@
 # pyssporg
 
-Python tooling for the [SSP (System Structure and Parameterization) standard](https://ssp-standard.org), FMI co-simulation, and SysML v2.
+Tooling for the [SSP (System Structure and Parameterization) standard](https://ssp-standard.org), FMI, and SysML v2.
 
-Our libraries let you create, inspect, and edit SSP packages; simulate them across interchangeable engines and compare the results; bridge SysML v2 architectures to SSP/FMI artifacts; turn CSV signals into FMUs; wrap Model Exchange FMUs into Co-Simulation FMUs; and run verification-and-validation workflows over the whole chain. Most repos are MIT-licensed Python; several embed C/C++ runtimes or engines.
+Our libraries let you create, inspect, and edit simulation packages; simulate them across interchangeable engines and compare the results; bridge SysML v2 architectures to SSP/FMI artifacts; turn CSV signals into FMUs; wrap Model Exchange FMUs into Co-Simulation FMUs; and run verification-and-validation workflows over the whole chain. Most repos are MIT-licensed Python; several embed C/C++ runtimes or engines.
 
 ![Overview of the pyssporg ecosystem: tools, engines, and standards](assets/ecosystem_overview.png)
 
 ## Repositories
-
-Maturity: `stable` — production-ready; `beta` — usable, API still evolving; `alpha` — early, breaking changes expected; `experimental` — not a release line.
 
 ### Core & foundation
 
@@ -60,6 +58,10 @@ Maturity: `stable` — production-ready; `beta` — usable, API still evolving; 
 | --- | --- | --- | --- |
 | [experimental_pyssp_standard](https://github.com/pyssporg/experimental_pyssp_standard) | Python | experimental | Experimental fork of `pyssp_standard` with refactored SSP/FMI model APIs for the pyssp ecosystem. Under active development; not a release line. |
 | [pyfmi_distributed](https://github.com/pyssporg/pyfmi_distributed) | Python + C++ | experimental | Turn a SysML v2 definition of an FMU into an optimized C++17 realtime runtime, packaged as an FMI 2.0 Co-Simulation FMU, with transport adapters for HLA, DIS, DCP, ROS 2, and ED-247. |
+
+
+Maturity: `stable` — production-ready; `beta` — usable, API still evolving; `alpha` — early, breaking changes expected; `experimental` — very early, so many changes...
+
 
 
 ## Where to Start
