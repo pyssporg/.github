@@ -1,5 +1,3 @@
-# pyssporg
-
 <img src="assets/pyssporg-logo.svg" alt="pyssporg logo" width="360">
 
 Tooling for modeling and simulation using [SSP (System Structure and Parameterization)](https://ssp-standard.org), [FMI](https://fmi-standard.org), and [SysML v2](https://www.omg.org/spec/SysML/).
