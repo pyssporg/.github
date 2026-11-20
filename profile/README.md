@@ -2,7 +2,7 @@
 
 Tooling for modeling and simulation using [SSP (System Structure and Parameterization)](https://ssp-standard.org), [FMI](https://fmi-standard.org), and [SysML v2](https://www.omg.org/spec/SysML/).
 
-Our libraries let you create, inspect, and edit simulation packages; simulate them across interchangeable engines and compare the results; bridge SysML v2 architectures to SSP/FMI artifacts; turn CSV signals into FMUs; wrap Model Exchange FMUs into Co-Simulation FMUs; and run verification-and-validation workflows over the whole chain. Most repos are MIT-licensed Python; several embed C/C++ runtimes or engines.
+Our libraries let you create, inspect, and edit simulation packages; simulate them across interchangeable engines and compare the results; bridge SysML v2 architectures to SSP/FMI artifacts; turn CSV signals into FMUs; wrap Model Exchange FMUs into Co-Simulation FMUs; put generated realtime FMUs on a versioned wire format and coordinate federations of independently launched simulation instances; and run verification-and-validation workflows over the whole chain. Most repos are MIT-licensed Python; several embed C/C++ runtimes or engines.
 
 ![Overview of the pyssporg ecosystem: tools, engines, and standards](assets/ecosystem_overview.png)
 
@@ -31,13 +31,24 @@ Our libraries let you create, inspect, and edit simulation packages; simulate th
 | [pycps_sysml2](https://github.com/pyssporg/pycps_sysml2) | Python | beta | The SysML dialect layer for CPS artifacts: parses SysML v2 into a repo-owned IR and owns variation, selection, constraints, and every marker and metadata accessor for the SSP and FMI dialects. |
 | [pyfmi_sysml2](https://github.com/pyssporg/pyfmi_sysml2) | Python | beta | Generate FMI 2.0 Co-Simulation artifacts from a SysML v2 architecture: `modelDescription.xml`, C interface headers, Modelica connectors, and a packaged `.fmu`. |
 
+### Realtime & system-of-systems
+
+| Repository | Language | Maturity | Description |
+| --- | --- | --- | --- |
+| [pyfmi_interop](https://github.com/pyssporg/pyfmi_interop) | Python + C++ | alpha | Put a model interface on one versioned wire format — protobuf, `packed`, or `opaque` payloads with 56-byte framing — and generate a C++17 realtime runtime packaged as an FMI 2.0 Co-Simulation FMU. |
+| [pyfmi_rpr](https://github.com/pyssporg/pyfmi_rpr) | Python | alpha | FMU-side adapter that projects `pyfmi_interop` realtime signals onto the RPR-derived protobuf vocabulary, bridging generic wire to RPR over UDP. |
+| [pysos_rpr](https://github.com/pyssporg/pysos_rpr) | Python | alpha | Shared RPR-derived protobuf vocabulary for the `pysos_*` family: entity identity, spatial state and dead reckoning, marking, force, and platform/aircraft class. |
+| [pysos_interop](https://github.com/pyssporg/pysos_interop) | Python | alpha | Neutral `EntityState` hub for system-of-systems simulation, with DIS (IEEE 1278.1) and RPR codecs, truth-stream recording, and measurement CSV export. |
+| [pysos_coordinate](https://github.com/pyssporg/pysos_coordinate) | Python | alpha | Set up and supervise a federation of independently launched simulation instances: owns process, ports, timing policy, and status, and knows nothing about SSP, FMI, DIS, or SysML. |
+| [pysos_sysml](https://github.com/pyssporg/pysos_sysml) | Python | alpha | Read a SysML v2 federation setup and lower it to the schema-1 execution manifest owned by `pysos_coordinate`. |
+
 ### verification & validation
 
 | Repository | Language | Maturity | Description |
 | --- | --- | --- | --- |
 | [pyssp_vv](https://github.com/pyssporg/pyssp_vv) | Python | alpha | Verification and validation for simulation models: measurement (series, alignment, metrics, coverage, normalisation) and judgment (criteria, dispositions, verdicts), linked by policy and evidenced by reports. |
 | [pyssp_workflow](https://github.com/pyssporg/pyssp_workflow) | Python | alpha | Composable workflows for building, running, comparing, verifying, and validating SSP models — as plain functions and as node-ready work units. Composes `pyssp_standard`, `pyssp_simulate`, `pyssp_vv`, and `pyssp_sysml2`; owns none of them. |
-| [pylsuq](https://github.com/pyssporg/pylsuq) | Python | alpha | Python implementation of the LS-UQ (Uncertainty Quantification) standard developed as part of the OpenSCALING project. Loads and saves LS-UQ XML documents via a dataclass-based XML-to-Python mapping. |
+| [pyls_vvuq](https://github.com/pyssporg/pyls_vvuq) | Python | alpha | Python implementation of the LS-UQ (Uncertainty Quantification) standard developed as part of the OpenSCALING project. Loads and saves LS-UQ XML documents via a dataclass-based XML-to-Python mapping (import package `pylsuq`). |
 
 ### FMU & packaging
 
@@ -57,7 +68,6 @@ Our libraries let you create, inspect, and edit simulation packages; simulate th
 | Repository | Language | Maturity | Description |
 | --- | --- | --- | --- |
 | [experimental_pyssp_standard](https://github.com/pyssporg/experimental_pyssp_standard) | Python | experimental | Experimental fork of `pyssp_standard` with refactored SSP/FMI model APIs for the pyssp ecosystem. Under active development; not a release line. |
-| [pyfmi_distributed](https://github.com/pyssporg/pyfmi_distributed) | Python + C++ | experimental | Turn a SysML v2 definition of an FMU into an optimized C++17 realtime runtime, packaged as an FMI 2.0 Co-Simulation FMU, with transport adapters for HLA, DIS, DCP, ROS 2, and ED-247. |
 
 Maturity: `stable` — production-ready; `beta` — usable, API still evolving; `alpha` — early, breaking changes expected; `experimental` — very early, so many changes...
 
@@ -69,9 +79,9 @@ Maturity: `stable` — production-ready; `beta` — usable, API still evolving; 
 - **Looking for example models** — see the reference fixtures in [`ssp_references`](https://github.com/pyssporg/ssp_references).
 - **Verifying and validating a model** — measure and judge simulation results with [`pyssp_vv`](https://github.com/pyssporg/pyssp_vv), or compose a full build–run–compare–validate chain with [`pyssp_workflow`](https://github.com/pyssporg/pyssp_workflow).
 - **Coming from a SysML v2 architecture** — use [`pyssp_sysml2`](https://github.com/pyssporg/pyssp_sysml2) to generate SSD, SSV, and FMI artifacts; [`pycps_sysml2`](https://github.com/pyssporg/pycps_sysml2) is the shared SysML dialect layer, and [`pyfmi_sysml2`](https://github.com/pyssporg/pyfmi_sysml2) targets FMI artifacts directly.
-- **Realtime and distributed simulation** — turn a SysML v2 FMU definition into a realtime runtime with [`pyfmi_distributed`](https://github.com/pyssporg/pyfmi_distributed).
+- **Realtime and system-of-systems simulation** — generate a realtime FMU on a versioned wire with [`pyfmi_interop`](https://github.com/pyssporg/pyfmi_interop) and project it onto the RPR vocabulary with [`pyfmi_rpr`](https://github.com/pyssporg/pyfmi_rpr); set up a federation with [`pysos_coordinate`](https://github.com/pyssporg/pysos_coordinate) from a SysML v2 setup via [`pysos_sysml`](https://github.com/pyssporg/pysos_sysml), with [`pysos_interop`](https://github.com/pyssporg/pysos_interop) and [`pysos_rpr`](https://github.com/pyssporg/pysos_rpr) carrying entity state between implementations.
 - **Packaging models as FMUs** — turn CSV data into an FMU with [`pyfmu_csv`](https://github.com/pyssporg/pyfmu_csv), or wrap Model Exchange FMUs into a single Co-Simulation FMU with [`pyfmi_me_to_cs`](https://github.com/pyssporg/pyfmi_me_to_cs).
-- **Uncertainty quantification** — work with LS-UQ documents via [`pylsuq`](https://github.com/pyssporg/pylsuq).
+- **Uncertainty quantification** — work with LS-UQ documents via [`pyls_vvuq`](https://github.com/pyssporg/pyls_vvuq) (import package `pylsuq`).
 - **Running parallel campaigns** — [`sequence_extensions`](https://github.com/pyssporg/sequence_extensions) provides the flow engine for deterministic parallel runs, local or at HPC.
 
 ## Ecosystem
