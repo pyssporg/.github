@@ -148,7 +148,7 @@
        y="448"
        class="t-mono"
        id="text13"
-       style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:21px;line-height:normal;font-family:Consolas, 'Liberation Mono', monospace">pyfmi_sysml2</text>
+       style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:21px;line-height:normal;font-family:Consolas, 'Liberation Mono', monospace">pyfmi_interfaces</text>
     <text
        x="398"
        y="476"
@@ -161,6 +161,12 @@
        class="t-small"
        id="text15"
        style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:19px;line-height:normal;font-family:Arial, 'Helvetica Neue', sans-serif">modelDescription · FMU</text>
+    <text
+       x="398"
+       y="528"
+       class="t-small"
+       id="text15a"
+       style="font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;font-size:19px;line-height:normal;font-family:Arial, 'Helvetica Neue', sans-serif">via pyfmi_sysml</text>
     <text
        x="398.9104"
        y="658.51019"
