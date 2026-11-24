@@ -69,7 +69,7 @@ Our libraries let you create, inspect, and edit simulation packages; simulate th
 
 | Repository | Language | Maturity | Description |
 | --- | --- | --- | --- |
-| [experimental_pyssp_standard](https://github.com/pyssporg/experimental_pyssp_standard) | Python | experimental | Experimental fork of `pyssp_standard` with refactored SSP/FMI model APIs for the pyssp ecosystem. Under active development; not a release line. |
+| [pyssp_standard_exp](https://github.com/pyssporg/pyssp_standard_exp) | Python | experimental | Experimental fork of `pyssp_standard` with refactored SSP/FMI model APIs for the pyssp ecosystem. Under active development; not a release line. |
 
 Maturity: `stable` — production-ready; `beta` — usable, API still evolving; `alpha` — early, breaking changes expected; `experimental` — very early, so many changes...
 
