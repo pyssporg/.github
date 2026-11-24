@@ -56,7 +56,7 @@ Our libraries let you create, inspect, and edit simulation packages; simulate th
 
 | Repository | Language | Maturity | Description |
 | --- | --- | --- | --- |
-| [pyfmu_csv](https://github.com/pyssporg/pyfmu_csv) | Python + C++ | alpha | Generate FMI 2.0 Co-Simulation FMU packages from CSV-described signals, with a C++ runtime embedded in the FMU. |
+| [pyfmi_csv](https://github.com/pyssporg/pyfmi_csv) | Python + C++ | alpha | Generate FMI 2.0 Co-Simulation FMU packages from CSV-described signals, with a C++ runtime embedded in the FMU. |
 | [pyfmi_me_to_cs](https://github.com/pyssporg/pyfmi_me_to_cs) | Python + C | alpha | Convert a complete SSP package (`.ssp`) — one or more FMI 2.0 Model Exchange FMUs wired together in a `SystemStructure.ssd` — into a single FMI 2.0 Co-Simulation FMU (`.fmu`), with a C wrapper and a local solver. |
 
 ### Execution infrastructure
@@ -82,7 +82,7 @@ Maturity: `stable` — production-ready; `beta` — usable, API still evolving; 
 - **Verifying and validating a model** — measure and judge simulation results with [`pyssp_vv`](https://github.com/pyssporg/pyssp_vv), or compose a full build–run–compare–validate chain with [`pyssp_workflow`](https://github.com/pyssporg/pyssp_workflow).
 - **Coming from a SysML v2 architecture** — use [`pyssp_sysml`](https://github.com/pyssporg/pyssp_sysml) to generate SSD, SSV, SSM, and SSP artifacts; [`pycps_sysml`](https://github.com/pyssporg/pycps_sysml) is the shared SysML dialect layer, [`pyssp_sysml_definitions`](https://github.com/pyssporg/pyssp_sysml_definitions) carries the vocabulary, [`pyfmi_sysml`](https://github.com/pyssporg/pyfmi_sysml) targets FMI and interop artifacts, and [`pyfmi_interfaces`](https://github.com/pyssporg/pyfmi_interfaces) emits the FMI interface directly.
 - **Realtime and system-of-systems simulation** — generate a realtime FMU on a versioned wire with [`pyfmi_interop`](https://github.com/pyssporg/pyfmi_interop) and project it onto the RPR vocabulary with [`pyfmi_rpr`](https://github.com/pyssporg/pyfmi_rpr); set up a federation with [`pysos_coordinate`](https://github.com/pyssporg/pysos_coordinate) from a SysML v2 setup via [`pysos_sysml`](https://github.com/pyssporg/pysos_sysml), with [`pysos_interop`](https://github.com/pyssporg/pysos_interop) and [`pysos_rpr`](https://github.com/pyssporg/pysos_rpr) carrying entity state between implementations.
-- **Packaging models as FMUs** — turn CSV data into an FMU with [`pyfmu_csv`](https://github.com/pyssporg/pyfmu_csv), or wrap Model Exchange FMUs into a single Co-Simulation FMU with [`pyfmi_me_to_cs`](https://github.com/pyssporg/pyfmi_me_to_cs).
+- **Packaging models as FMUs** — turn CSV data into an FMU with [`pyfmi_csv`](https://github.com/pyssporg/pyfmi_csv), or wrap Model Exchange FMUs into a single Co-Simulation FMU with [`pyfmi_me_to_cs`](https://github.com/pyssporg/pyfmi_me_to_cs).
 - **Uncertainty quantification** — work with LS-UQ documents via [`pyls_vvuq`](https://github.com/pyssporg/pyls_vvuq) (import package `pylsuq`).
 - **Running parallel campaigns** — [`sequence_extensions`](https://github.com/pyssporg/sequence_extensions) provides the flow engine for deterministic parallel runs, local or at HPC.
 
