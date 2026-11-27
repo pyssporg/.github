@@ -33,12 +33,17 @@ Our libraries let you create, inspect, and edit simulation packages; simulate th
 | [pyfmi_interfaces](https://github.com/pyssporg/pyfmi_interfaces) | Python | beta | The FMI 2.0 interface model and emitters: `modelDescription.xml`, C headers and runtime, Modelica connectors, and `.fmu` packaging through `pyssp_standard` from a parser-free reduction. |
 | [pyfmi_sysml](https://github.com/pyssporg/pyfmi_sysml) | Python | alpha | The SysML v2 composition layer: parse once, reduce, and drive the FMI and interop generators from one architecture, with the `pyfmi-sysml` CLI. |
 
-### Realtime & system-of-systems
+### Interop & transport
 
 | Repository | Language | Maturity | Description |
 | --- | --- | --- | --- |
-| [pyfmi_interop](https://github.com/pyssporg/pyfmi_interop) | Python + C++ | alpha | Put a model interface on one versioned wire format — protobuf, `packed`, or `opaque` payloads with 56-byte framing — and generate a C++17 realtime runtime packaged as an FMI 2.0 Co-Simulation FMU. |
-| [pyfmi_rpr](https://github.com/pyssporg/pyfmi_rpr) | Python | alpha | FMU-side adapter that projects `pyfmi_interop` realtime signals onto the RPR-derived protobuf vocabulary, bridging generic wire to RPR over UDP. |
+| [pyfmi_interop](https://github.com/pyssporg/pyfmi_interop) | Python + C++ | alpha | Put a model interface on one versioned wire format — protobuf, `packed`, or `opaque` payloads with 56-byte framing — and generate a C++17 runtime packaged as an FMI 2.0 Co-Simulation FMU. |
+| [pyfmi_rpr](https://github.com/pyssporg/pyfmi_rpr) | Python | alpha | FMU-side adapter that projects `pyfmi_interop` signals onto the RPR-derived protobuf vocabulary, bridging generic wire to RPR over UDP. |
+
+### System-of-systems
+
+| Repository | Language | Maturity | Description |
+| --- | --- | --- | --- |
 | [pysos_rpr](https://github.com/pyssporg/pysos_rpr) | Python | alpha | Shared RPR-derived protobuf vocabulary for the `pysos_*` family: entity identity, spatial state and dead reckoning, marking, force, and platform/aircraft class. |
 | [pysos_interop](https://github.com/pyssporg/pysos_interop) | Python | alpha | Neutral `EntityState` hub for system-of-systems simulation, with DIS (IEEE 1278.1) and RPR codecs, truth-stream recording, and measurement CSV export. |
 | [pysos_coordinate](https://github.com/pyssporg/pysos_coordinate) | Python | alpha | Set up and supervise a federation of independently launched simulation instances: owns process, ports, timing policy, and status, and knows nothing about SSP, FMI, DIS, or SysML. |
@@ -57,6 +62,7 @@ Our libraries let you create, inspect, and edit simulation packages; simulate th
 | Repository | Language | Maturity | Description |
 | --- | --- | --- | --- |
 | [pyfmi_csv](https://github.com/pyssporg/pyfmi_csv) | Python + C++ | alpha | Generate FMI 2.0 Co-Simulation FMU packages from CSV-described signals, with a C++ runtime embedded in the FMU. |
+| [pyfmi_scenario](https://github.com/pyssporg/pyfmi_scenario) | Python | alpha | Turn scenario time-series text into a single FMI 2.0 Co-Simulation FMU, with the scenario data carried inside the FMU so importers read the outputs without a custom data loader. |
 | [pyfmi_me_to_cs](https://github.com/pyssporg/pyfmi_me_to_cs) | Python + C | alpha | Convert a complete SSP package (`.ssp`) — one or more FMI 2.0 Model Exchange FMUs wired together in a `SystemStructure.ssd` — into a single FMI 2.0 Co-Simulation FMU (`.fmu`), with a C wrapper and a local solver. |
 
 ### Execution infrastructure
@@ -70,6 +76,12 @@ Our libraries let you create, inspect, and edit simulation packages; simulate th
 | Repository | Language | Maturity | Description |
 | --- | --- | --- | --- |
 | [pyssp_standard_exp](https://github.com/pyssporg/pyssp_standard_exp) | Python | experimental | Experimental fork of `pyssp_standard` with refactored SSP/FMI model APIs for the pyssp ecosystem. Under active development; not a release line. |
+
+### Publications & references
+
+| Repository | Language | Maturity | Description |
+| --- | --- | --- | --- |
+| [pyssp_publications](https://github.com/pyssporg/pyssp_publications) | TeX | stable | References for publications related to the pyssp ecosystem, with BibTeX in `references.bib`. |
 
 Maturity: `stable` — production-ready; `beta` — usable, API still evolving; `alpha` — early, breaking changes expected; `experimental` — very early, so many changes...
 
